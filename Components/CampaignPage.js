@@ -14,30 +14,31 @@ class Profile extends Component {
             campaign: {
                 name: '',
                 description: '',
-                owner: ''
-            }
+                owner: '',
+                _id: '',
+                picture: ''
+            },
+            leader: ''
         };
         this.userService = UserService.instance;
         this.campaignService = CampaignService.instance;
-
     }
 
     componentDidMount(){
         const {navigation} = this.props;
         const campaign = navigation.getParam("campaign");
         this.setState({campaign: campaign});
+        this.loadLeader(campaign.owner);
     }
 
-    // componentWillReceiveProps(newProps) {
-    //     this.loadCampaign(newProps.campaign);
-    // }
-
-    // loadCampaign(campaign) {
-    //     console.log(campaign);
-    //     this.setState({campaign: campaign});
-    // }
-
-
+    loadLeader(id) {
+        let fullName = '';
+        this.userService.findUserById(id)
+            .then(owner => {
+                fullName = owner.firstName + ' ' + owner.lastName;
+                this.setState({leader: fullName})
+            });
+    }
 
     render() {
         return (
@@ -46,22 +47,16 @@ class Profile extends Component {
                     <Card style={{flex: 0}}>
                         <CardItem>
                             <Left>
-                                <Thumbnail source={{uri: 'Image URL'}} />
                                 <Body>
                                 <Text>{this.state.campaign.name}</Text>
-                                <Text note>Lead by {this.state.campaign.owner}</Text>
+                                <Text note>Lead by {this.state.leader}</Text>
                                 </Body>
                             </Left>
-                            <Right>
-                                <Button rounded primary
-                                        onPress={() => this.campaignService.userJoinsCampaign(this.state.campaign._id)}>
-                                    <Text>Join</Text>
-                                </Button>
-                            </Right>
+
                         </CardItem>
                         <CardItem>
                             <Body>
-                            <Image source={{uri: 'https://source.unsplash.com/random'}} style={{height: 200, width: 200, flex: 1}}/>
+                            <Image source={{uri: this.state.campaign.picture}} style={{height: 200, width: 200, flex: 1}}/>
                             <Text>
                                 {this.state.campaign.description}
                             </Text>
@@ -70,12 +65,25 @@ class Profile extends Component {
                         <CardItem>
                             <Left>
                                 <Button transparent textStyle={{color: '#87838B'}}>
-                                    <Icon name="group" />
+                                    <Icon type= 'MaterialIcons' name="group" />
                                     <Text>1,926</Text>
                                 </Button>
                             </Left>
+
+                            <Right>
+                                <Button rounded primary
+                                        onPress={() => this.campaignService.userJoinsCampaign(this.state.campaign._id)}>
+                                    <Text>Join</Text>
+                                </Button>
+                            </Right>
                         </CardItem>
+
                     </Card>
+                    <Button block primary
+                            onPress={() =>
+                                this.props.navigation.navigate('CampaignEditor', {campaign: this.state.campaign})}>
+                        <Text>Edit Campaign</Text>
+                    </Button>
                 </Content>
             </Container>
         );

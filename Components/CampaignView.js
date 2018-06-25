@@ -118,7 +118,7 @@ class CampaignView extends Component {
                                 </Left>
                             </CardItem>
                             <CardItem cardBody>
-                                <Image source={{uri: 'https://source.unsplash.com/random'}}
+                                <Image source={{uri: campaign.photo}}
                                        style={{height: 200, width: null, flex: 1}}/>
                             </CardItem>
                             <CardItem>

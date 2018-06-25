@@ -13,7 +13,8 @@ class campaignCreator extends Component {
             name: 'Title',
             description: 'Description',
             category: '',
-            owner: 'owner'
+            owner: 'owner',
+            picture: 'https://source.unsplash.com/random/800x600'
         };
         this.campaignService = CampaignService.instance;
         this.userService = UserService.instance;
@@ -46,6 +47,11 @@ class campaignCreator extends Component {
         this.setState(newState);
     }
 
+    createCampaign() {
+        this.campaignService.createCampaign(this.state)
+            .then(() => alert('nice'))
+    }
+
 
     render() {
         return(
@@ -60,9 +66,11 @@ class campaignCreator extends Component {
                 <FormInput onChangeText={ text => this.updateForm({description: text}) }/>
                 <FormValidationMessage> What is your campaign about? </FormValidationMessage>
 
+                <FormLabel>Cover Photo</FormLabel>
+                <FormInput onChangeText={ text => this.updateForm({picture: text}) }/>
+
                 <Button Success rounded block style={{margin: 20}}
-                        onPress={() =>  this.campaignService.createCampaign(this.state)
-                            .then(() => alert('nice'))}>
+                        onPress={() => this.createCampaign()}>
                     <Text h5 style={{color: 'white'}}>Create</Text>
                 </Button>
 
