@@ -5,14 +5,18 @@ import BillList from './BillList'
 
 
 export default class SearchView extends React.Component {
-    // static navigationOptions = {
-    //     title: 'SearchView'
-    // };
+    static navigationOptions = null;
     constructor(props) {
         super(props)
         this.state = {
             search: '',
-            input: ''
+            input: '',
+            state: '',
+            chamber: '',
+            q: '',
+            subject: '',
+            type: ''
+
         }
     }
 
@@ -20,9 +24,6 @@ export default class SearchView extends React.Component {
         this.setState(newState)
     }
 
-    // renderBillList() {
-    //     return <BillList search={this.props.search}/>;
-    // }
 
     render() {
         return (
@@ -31,29 +32,13 @@ export default class SearchView extends React.Component {
                     <Item>
                         <Icon name="ios-search" />
                         <Input placeholder="Search"
-                               onChangeText={
-                                   text => this.updateSearch({input: text})
-                               }/>
+                               onChangeText={text => this.updateSearch({input: text})}/>
                     </Item>
                     <Button transparent
                             onPress={() => this.props.navigation.navigate('BillList', {search: this.state.input})}>
                         <Text>Search</Text>
                     </Button>
                 </Header>
-                <ScrollView>
-                    <Text>{this.state.input}</Text>
-                    {/*<SearchBar*/}
-                        {/*showLoading*/}
-                        {/*lightTheme*/}
-                        {/*placeholder='Search Bill'*/}
-                        {/*platform='ios'*/}
-                        {/*cancelButtonTitle='Cancel'*/}
-                        {/*ref={search => this.search = search}/>*/}
-                    {/*<Button transparent>*/}
-                        {/*<Text>Search</Text>*/}
-                    {/*</Button>*/}
-
-                </ScrollView>
             </Container>
 
         );

@@ -1,58 +1,92 @@
+import { StyleSheet, View, ImageBackground, Dimensions, Image } from 'react-native'
 import React, {Component} from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
-import {Button, Item, Input, Icon, List, ListItem} from 'native-base';
-import { Divider, Text } from 'react-native-elements'
+import {Button, Item, Input, Icon, Text, Form,  Container, Content} from 'native-base';
+import UserService from "../services/user.service.client";
 
 
-class Login extends Component {
+const LOG_IN = require('../Image/loginBG.jpg');
+
+
+export default class Login extends Component {
+    static navigationOptions = {
+    };
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        };
+        this.userService = UserService.instance;
     }
 
+    login() {
+        this.userService.login(this.state).then(
+            () => this.props.navigation.navigate('profile'),
+            () => alert('Login Failed')
+        )
+    }
     render() {
         return (
-            <View>
-                <Text h4 style={{flex: 1, flexDirection: 'row', alignItems: 'center',}}>Log in using</Text>
-                <View style={styles.loginIcons}>
-                    <Icon type="Entypo"
-                          name="facebook-with-circle"
-                          onPress={() => alert('log in with fb to be implemented')}
-                          style={{fontSize: 50, color: '#3b5998'}}
-                    />
-
-                    <Icon type="Entypo"
-                          name="google--with-circle"
-                          style={{fontSize: 50, color: '#dd4b39'}}
-                          onPress={() => alert('log in with google to be implemented')}/>
-
-                    <Icon type="Entypo"
-                          name="twitter-with-circle"
-                          style={{fontSize: 50, color: '#1dcaff'}}
-                          onPress={() => alert('log in with twitter to be implemented')}/>
-
-                    <Icon type="Entypo"
-                          name="linkedin-with-circle"
-                          onPress={() => alert('log in with linkedin to be implemented')}
-                          style={{fontSize: 50, color: '#007bb5'}} />
-
+            <Container>
+                <View style={styles.container}>
+                    <Content scrollEnabled={false}>
+                        <ImageBackground style={styles.loginBackground} source={LOG_IN}>
+                            <View style={styles.loginForeground}>
+                                <Form>
+                                    <Item style={{marginBottom: 10}} rounded>
+                                        <Icon style={{color: "#fff"}}
+                                              type='MaterialIcons'
+                                              name='email'/>
+                                        <Input style={{color: "#fff"}}
+                                               placeholder='Please Enter Email'
+                                               placeholderTextColor="#fff"
+                                               onChangeText={text => this.setState({email: text})}/>
+                                    </Item>
+                                    <Item style={{marginBottom: 10}} rounded>
+                                        <Icon style={{color: "#fff"}}
+                                              type="MaterialIcons"
+                                              name='vpn-key'/>
+                                        <Input style={{color: "#fff"}}
+                                               placeholder='Please Enter Password'
+                                               placeholderTextColor="#fff"
+                                               secureTextEntry={true}
+                                               onChangeText={text => this.setState({password: text})}/>
+                                    </Item>
+                                    <Button rounded block style={{marginBottom: 10}}
+                                            onPress={() => this.login()}>
+                                        <Text>Login</Text>
+                                    </Button>
+                                </Form>
+                            </View>
+                        </ImageBackground>
+                    </Content>
                 </View>
-                <Button info rounded block style={{marginBottom: 10}}
-                        onPress={() => this.props.navigation.navigate('SearchView') }>
-                    <Text h5 style={{color: 'white'}}>Skip Login</Text>
-                </Button>
-            </View>
+            </Container>
         )
     }
 }
 
-const styles =  StyleSheet.create({
-    loginIcons: {
+const styles = StyleSheet.create({
+    container: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0
+    },
+    loginBackground: {
         flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        marginVertical: 20
+        width: null,
+        height: null
+    },
+    loginForeground: {
+        flex:1,
+        marginTop: Dimensions.get('window').height/1.75,
+        paddingTop: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 90,
+        bottom: 0
     }
-});
+})
 
-export default Login;
+

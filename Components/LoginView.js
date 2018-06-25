@@ -4,15 +4,16 @@ import React, {Component} from 'react';
 import {Button, Icon} from 'native-base';
 import { Text } from 'react-native-elements'
 
+
 // const LOG_IN = require('./Image/loginBG.jpg');
 
 
 export default class LoginView extends Component {
     static navigationOptions = {
-        title: 'LoginView'
+        title: 'ICampaign'
     };
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     render() {
@@ -23,13 +24,11 @@ export default class LoginView extends Component {
                         {/*<ImageBackground style={styles.loginBackground} source={LOG_IN}>*/}
                         <View style={styles.loginForeground}>
                             <View>
-                                <Text h4 style={{flex: 1, flexDirection: 'row', alignItems: 'center',}}>Log in using</Text>
                                 <View style={styles.loginIcons}>
                                     <Icon type="Entypo"
                                           name="facebook-with-circle"
                                           onPress={() => alert('log in with fb to be implemented')}
-                                          style={{fontSize: 50, color: '#3b5998'}}
-                                    />
+                                          style={{fontSize: 50, color: '#3b5998'}}/>
 
                                     <Icon type="Entypo"
                                           name="google--with-circle"
@@ -47,8 +46,17 @@ export default class LoginView extends Component {
                                           style={{fontSize: 50, color: '#007bb5'}} />
 
                                 </View>
-                                <Button info rounded block style={{marginBottom: 10}}
-                                        onPress={() => this.props.navigation.navigate('SearchView') }>
+
+                                <Button primary rounded block style={{marginBottom: 5}}
+                                        onPress={() => this.props.navigation.navigate('LoginPage') }>
+                                    <Text h5 style={{color: 'white'}}>Login</Text>
+                                </Button>
+                                <Button primary rounded block style={{marginBottom: 5}}
+                                        onPress={() => this.props.navigation.navigate('Registration') }>
+                                    <Text h5 style={{color: 'white'}}>Sign Up</Text>
+                                </Button>
+                                <Button primary rounded block style={{marginBottom: 10}}
+                                        onPress={() => this.props.navigation.navigate('CampaignView') }>
                                     <Text h5 style={{color: 'white'}}>Skip Login</Text>
                                 </Button>
                             </View>
