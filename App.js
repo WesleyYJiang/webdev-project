@@ -13,6 +13,8 @@ import Profile from "./Components/profile";
 import TaskView from "./Components/TaskView";
 import CampaignView from "./Components/CampaignView";
 import Login from "./Components/Login";
+import ProfileEditor from "./Components/ProfileEditor"
+import { View} from 'react-native'
 
 
 const CampaignStack = createStackNavigator(
@@ -34,7 +36,14 @@ const TaskStack = createStackNavigator({
 });
 
 const ProfileStack = createStackNavigator({
-    Profile: Profile
+    Profile: Profile,
+    EditProfile: {
+        screen: ProfileEditor,
+        navigationOptions: () => ({
+            title: `Profile Editor`
+        })
+
+    }
 });
 
 const tabBar =  createBottomTabNavigator(
@@ -79,9 +88,7 @@ const tabBar =  createBottomTabNavigator(
          Registration: {
              screen: Registration,
              navigationOptions: () => ({
-                 title: `Sign Up`,
-                 headerBackTitle: 'A much too long text for back button from B to A',
-                 headerTruncatedBackTitle: `to A`
+                 title: `Sign Up`
              }),
          },
          LoginPage: Login,
@@ -90,7 +97,7 @@ const tabBar =  createBottomTabNavigator(
              navigationOptions: () => ({
                  header: null,
              }),
-         },
+         }
 
      }
 

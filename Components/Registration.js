@@ -25,7 +25,7 @@ class Registration extends Component {
 
     checkInfo() {
         if(this.state.password === this.state.passwordVerify) {
-            this.userService.register(this.state)
+            this.userService.createUser(this.state)
                 .then(() => this.props.navigation.navigate('Profile'),
                     () => alert('Username Taken!'));
         } else {
@@ -41,10 +41,10 @@ class Registration extends Component {
                 <FormValidationMessage>Email will be used for log in</FormValidationMessage>
 
                 <FormLabel>Password</FormLabel>
-                <FormInput onChangeText={text => this.updateForm({password: text})}/>
+                <FormInput secureTextEntry={true} onChangeText={text => this.updateForm({password: text})}/>
 
                 <FormLabel>Verify Password</FormLabel>
-                <FormInput onChangeText={text => this.updateForm({passwordVerify: text})}/>
+                <FormInput secureTextEntry={true} onChangeText={text => this.updateForm({passwordVerify: text})}/>
 
                 <FormLabel>First Name</FormLabel>
                 <FormInput onChangeText={text => this.updateForm({firstName: text})}/>

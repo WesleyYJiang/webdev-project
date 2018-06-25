@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be43b657-97a9-4b19-ac22-251f9a2df578" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/CampaignCreator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/CampaignList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/CampaignPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/CampaignView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Registration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/TabBar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/TaskView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/BillService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/campaign.service.client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/user.service.client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Components/ProfileEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/LoginView.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/LoginView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/SearchView.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/SearchView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/ecclesia-front-end.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/ecclesia-front-end.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/ecclesia-front-end/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/ecclesia-front-end/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/campaign.service.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/campaign.service.client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user.service.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/user.service.client.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,16 +22,55 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.37515604">
+    <splitter split-orientation="horizontal" split-proportion="0.38171774">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="666">
-                  <caret line="86" column="18" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="18" />
+                <state relative-caret-position="404">
+                  <caret line="39" column="15" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="15" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CampaignCreator.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Components/CampaignCreator.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="user.service.client.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/services/user.service.client.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="538">
+                  <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="campaign.service.client.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/services/campaign.service.client.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Components/Login.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="720">
+                  <caret line="48" column="69" lean-forward="true" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+                  <folding>
+                    <element signature="e#0#83#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -61,38 +88,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="user.service.client.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/services/user.service.client.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="164">
-                  <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CampaignCreator.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Components/CampaignCreator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CampaignView.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Components/CampaignView.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
-                  <caret line="94" column="100" selection-start-line="94" selection-start-column="100" selection-end-line="94" selection-end-column="100" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CampaignPage.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Components/CampaignPage.js">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -100,8 +95,8 @@
           <file leaf-file-name="Registration.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Components/Registration.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+                <state relative-caret-position="555">
+                  <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#38#0" expanded="true" />
                   </folding>
@@ -109,25 +104,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Login.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Components/Login.js">
+          <file leaf-file-name="profile.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Components/profile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="707">
-                  <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+                <state relative-caret-position="404">
+                  <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
                   <folding>
-                    <element signature="e#0#83#0" expanded="true" />
+                    <element signature="e#1#47#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Components/profile.js">
+          <file leaf-file-name="ProfileEditor.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Components/ProfileEditor.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="415">
-                  <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+                <state relative-caret-position="1617">
+                  <caret line="138" column="47" lean-forward="true" selection-start-line="137" selection-start-column="69" selection-end-line="138" selection-end-column="47" />
                   <folding>
-                    <element signature="e#1#47#0" expanded="true" />
+                    <element signature="e#0#83#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -154,6 +149,8 @@
       <find>service</find>
       <find>onpress</find>
       <find>searchView</find>
+      <find>profileEditor</find>
+      <find>wi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,14 +175,16 @@
         <option value="$PROJECT_DIR$/services/campaign.service.client" />
         <option value="$PROJECT_DIR$/ios/ecclesia-front-end/Info.plist" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/services/campaign.service.client.js" />
         <option value="$PROJECT_DIR$/Components/CampaignView.js" />
         <option value="$PROJECT_DIR$/Components/CampaignCreator.js" />
-        <option value="$PROJECT_DIR$/Components/profile.js" />
-        <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/Components/LoginView.js" />
-        <option value="$PROJECT_DIR$/Components/Registration.js" />
+        <option value="$PROJECT_DIR$/Components/LoginPrompt.js" />
+        <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/Components/Login.js" />
+        <option value="$PROJECT_DIR$/Components/ProfileEditor.js" />
+        <option value="$PROJECT_DIR$/services/campaign.service.client.js" />
+        <option value="$PROJECT_DIR$/Components/Registration.js" />
+        <option value="$PROJECT_DIR$/Components/profile.js" />
         <option value="$PROJECT_DIR$/services/user.service.client.js" />
       </list>
     </option>
@@ -207,9 +206,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1336" />
+    <option name="x" value="642" />
     <option name="y" value="22" />
-    <option name="width" value="1902" />
+    <option name="width" value="2291" />
     <option name="height" value="1418" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -287,12 +286,12 @@
       <workItem from="1529339006394" duration="46000" />
       <workItem from="1529606014735" duration="7326000" />
       <workItem from="1529767972001" duration="7709000" />
-      <workItem from="1529783661864" duration="48478000" />
+      <workItem from="1529783661864" duration="60318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88411000" />
+    <option name="totallyTimeSpent" value="100251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,10 +303,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1336" y="22" width="1902" height="1418" extended-state="0" />
+    <frame x="642" y="22" width="2291" height="1418" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14832535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12290749" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32975295" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -316,7 +315,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.20153257" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.20153257" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -339,23 +338,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Components/LoginView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Components/SearchView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -616,25 +598,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/campaign.service.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Components/Login">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="86" column="18" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Components/LoginView.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -656,6 +621,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Components/LoginPrompt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="69" lean-forward="true" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/ProfileEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1617">
+          <caret line="138" column="47" lean-forward="true" selection-start-line="137" selection-start-column="69" selection-end-line="138" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/Registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding>
+            <element signature="e#1#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/user.service.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Components/CampaignCreator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -663,40 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Components/profile.js">
+    <entry file="file://$PROJECT_DIR$/services/campaign.service.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding>
-            <element signature="e#1#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Components/Registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Components/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/user.service.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

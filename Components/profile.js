@@ -1,5 +1,5 @@
 
-import { View, StyleSheet} from 'react-native'
+import { View, StyleSheet, Alert} from 'react-native'
 import React, {Component} from 'react';
 import { Avatar} from 'react-native-elements';
 import UserService  from '../services/user.service.client'
@@ -10,19 +10,32 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'wesley.y.jiang@gmail.com',
-            lastName: 'Wesley',
-            firstName: 'Jiang'
+            email: '',
+            lastName: '',
+            firstName: '',
+            bio: '',
+            profession: '',
+            education: '',
+            state: '',
+            reputation: ''
+
         };
         this.userService = UserService.instance;
         // this.loadProfile = this.loadProfile.bind(this);
 
-        this.userService.loadProfile()
+        this.userService.profile()
             .then(user => this.setState({
                 email: user.email,
                 lastName: user.lastName,
-                firstName: user.firstName
-            }))
+                firstName: user.firstName}),
+                () => Alert.alert(
+                    'Need to Log in',
+                    'Please log in or register an account for more features',
+                    [
+                        {text: 'OK', onPress: () => this.props.navigation.navigate('Login')},
+                    ],
+                    { cancelable: false }
+                ))
 
     }
 
@@ -40,6 +53,7 @@ class Profile extends Component {
     // }
     //
 
+
     render() {
         return (
             <Container>
@@ -54,7 +68,9 @@ class Profile extends Component {
                                 </Body>
                             </Left>
                             <Right>
-                                <Button rounded info> <Text>Edit</Text> </Button>
+                                <Button rounded info onPress={() => this.props.navigation.navigate('EditProfile')}>
+                                    <Text>Edit</Text>
+                                </Button>
                             </Right>
                         </CardItem>
                         <CardItem header>
@@ -63,7 +79,7 @@ class Profile extends Component {
                         <CardItem bordered>
                             <Body>
                             <Text>
-                                Passionate about campaigns and wants to change the world!</Text>
+                                {this.state.bio} </Text>
                             </Body>
                         </CardItem>
                         <CardItem header>
@@ -80,6 +96,12 @@ class Profile extends Component {
                             <Text>My Campaigns</Text>
                         </CardItem>
                     </Card>
+
+                    <Button rounded block danger onPress={() =>
+                        this.userService.logout()
+                            .then(() => this.props.navigation.navigate('Login'))}>
+                        <Text>Log out</Text>
+                    </Button>
                 </Content>
             </Container>
         );

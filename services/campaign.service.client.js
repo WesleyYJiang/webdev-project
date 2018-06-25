@@ -1,5 +1,5 @@
 let _singleton = Symbol();
-const API_URL = 'https://10.0.0.98:3000/api/';
+const API_URL = 'https://project-back-end.herokuapp.com/api/';
 
 class CampaignService {
     constructor(singletonToken) {

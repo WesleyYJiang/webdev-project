@@ -2,10 +2,7 @@ import { StyleSheet, View, ImageBackground, Dimensions, Image } from 'react-nati
 import React, {Component} from 'react';
 import {Button, Item, Input, Icon, Text, Form,  Container, Content} from 'native-base';
 import UserService from "../services/user.service.client";
-
-
 const LOG_IN = require('../Image/loginBG.jpg');
-
 
 export default class Login extends Component {
     static navigationOptions = {
@@ -21,7 +18,7 @@ export default class Login extends Component {
 
     login() {
         this.userService.login(this.state).then(
-            () => this.props.navigation.navigate('profile'),
+            () => this.props.navigation.navigate('Profile'),
             () => alert('Login Failed')
         )
     }
@@ -87,6 +84,6 @@ const styles = StyleSheet.create({
         paddingBottom: 90,
         bottom: 0
     }
-})
+});
 
 
