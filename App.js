@@ -14,6 +14,7 @@ import TaskView from "./Components/TaskView";
 import CampaignView from "./Components/CampaignView";
 import Login from "./Components/Login";
 import ProfileEditor from "./Components/ProfileEditor"
+import CampaignPage from './Components/CampaignPage'
 import { View} from 'react-native'
 
 
@@ -21,7 +22,8 @@ const CampaignStack = createStackNavigator(
     {
         CampaignView: CampaignView,
         TaskView: TaskView,
-        CampaignCreator: CampaignCreator
+        CampaignCreator: CampaignCreator,
+        CampaignPage: CampaignPage
     });
 
 const BillStack = createStackNavigator(

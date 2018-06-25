@@ -21,13 +21,12 @@ import CampaignService from "../services/campaign.service.client";
 
 class CampaignView extends Component {
     static navigationOptions = ({navigation}) => {
-        let headerTitle = ( <Item>
+        let headerTitle = (<Item>
             <Icon name="ios-search" />
             <Input  transparent placeholder="Search" />
         </Item>);
 
         let headerRight = (<Button transparent><Text>Search</Text></Button>);
-
         return { headerTitle, headerRight};
     };
 
@@ -71,14 +70,24 @@ class CampaignView extends Component {
 
     constructor(props) {
         super(props);
-        fetch('https://webdev-hw-wj.herokuapp.com/api/course')
-            .then(response => (response.json()))
-            .then(users => {
-                this.setState({users: users})
-            });
+        this.campaignService = CampaignService.instance;
         this.state = {
-            users: []
+            campaigns: []
         }
+    }
+
+    componentDidMount(){
+        this.loadCampaigns();
+    }
+
+    // componentWillReceiveProps(newProps) {
+    //     this.loadCampaigns();
+    // }
+
+    loadCampaigns() {
+        this.campaignService.findAllCampaigns().then(campaigns => {
+                this.setState({campaigns: campaigns})
+            });
     }
 
     render() {
@@ -97,14 +106,14 @@ class CampaignView extends Component {
                     <Text>Create campaign</Text>
                 </Button>
                 <Content>
-                    {this.state.users.map((campaign, index) => (
+                    {this.state.campaigns.map((campaign, index) => (
                         <Card key={index}>
                             <CardItem>
                                 <Left>
                                     {/*<Thumbnail source={{uri: 'Image URL'}} />*/}
                                     <Body>
-                                    <Text>{campaign.title}</Text>
-                                    <Text note>GeekyAnts</Text>
+                                    <Text>{campaign.name}</Text>
+                                    <Text note>{campaign.description}</Text>
                                     </Body>
                                 </Left>
                             </CardItem>
@@ -127,7 +136,8 @@ class CampaignView extends Component {
                                 </Body>
                                 <Right>
                                     <Button block primary
-                                            >
+                                            onPress={() =>
+                                                this.props.navigation.navigate('CampaignPage', {campaign: campaign})}>
                                         <Text>Enter</Text>
                                     </Button>
                                 </Right>

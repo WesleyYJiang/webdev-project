@@ -21,13 +21,24 @@ class Profile extends Component {
 
         };
         this.userService = UserService.instance;
-        // this.loadProfile = this.loadProfile.bind(this);
+        this.loadProfile = this.loadProfile.bind(this);
 
+    }
+
+    componentDidMount(){
+        this.loadProfile();
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.loadProfile();
+    }
+
+    loadProfile() {
         this.userService.profile()
             .then(user => this.setState({
-                email: user.email,
-                lastName: user.lastName,
-                firstName: user.firstName}),
+                    email: user.email,
+                    lastName: user.lastName,
+                    firstName: user.firstName}),
                 () => Alert.alert(
                     'Need to Log in',
                     'Please log in or register an account for more features',
@@ -36,22 +47,8 @@ class Profile extends Component {
                     ],
                     { cancelable: false }
                 ))
-
     }
 
-    // componentDidMount(){
-    //     this.userService.loadProfile()
-    //         .then(user => this.loadProfile(user))
-    // }
-    //
-    // loadProfile(profile) {
-    //     this.setState({
-    //         email: profile.email,
-    //         lastName: profile.lastName,
-    //         firstName: profile.firstName
-    //     });
-    // }
-    //
 
 
     render() {

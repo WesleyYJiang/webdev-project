@@ -15,8 +15,8 @@ class ProfileEditor extends Component {
             profession: '',
             education: '',
             state: '',
-            reputation: ''
-
+            reputation: '',
+            password: ''
         };
         this.userService = UserService.instance;
         // this.loadProfile = this.loadProfile.bind(this);
@@ -25,7 +25,8 @@ class ProfileEditor extends Component {
             .then(user => this.setState({
                     email: user.email,
                     lastName: user.lastName,
-                    firstName: user.firstName}),
+                    firstName: user.firstName,
+                    password: user.password}),
                 () => Alert.alert(
                     'Neet to Log in!',
                     'Please log in or register an account for more features',
@@ -36,21 +37,6 @@ class ProfileEditor extends Component {
                 ))
 
     }
-
-    // componentDidMount(){
-    //     this.userService.loadProfile()
-    //         .then(user => this.loadProfile(user))
-    // }
-    //
-    // loadProfile(profile) {
-    //     this.setState({
-    //         email: profile.email,
-    //         lastName: profile.lastName,
-    //         firstName: profile.firstName
-    //     });
-    // }
-    //
-
 
     render() {
         return (
@@ -144,9 +130,16 @@ class ProfileEditor extends Component {
                                             onPress={() => this.userService.updateUser(this.state)
                                                 .then(() => {
                                                     alert(' Update Completed! ');
-                                                    this.props.navigation.navigate('Profile')
-                                                }),
-                                                () => alert('something went wrong!')
+                                                    const email = this.state.email;
+                                                    const pass = this.state.password;
+                                                    this.userService.logout();
+                                                    this.userService.login(
+                                                        {
+                                                            email: email,
+                                                            password: pass
+                                                        }).then(() => this.props.navigation.navigate('Profile'))
+                                                },
+                                                () => alert('something went wrong!'))
                                             }>
                                         <Text>Update</Text>
                                     </Button>

@@ -28,5 +28,12 @@ class CampaignService {
         });
     }
 
+    userJoinsCampaign(campaignId) {
+        const url = API_URL + 'enrollment/campaign/' + campaignId;
+        return fetch(url, {
+            method: 'post',
+            credentials: 'include'
+        });
+    }
 }
 export default CampaignService;
