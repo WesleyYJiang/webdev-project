@@ -18,7 +18,7 @@ export default class Login extends Component {
 
     login() {
         this.userService.login(this.state).then(
-            () => this.props.navigation.navigate('Profile'),
+            () => this.props.navigation.navigate('CampaignView'),
             () => alert('Login Failed')
         )
     }

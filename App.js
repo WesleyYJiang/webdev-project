@@ -6,7 +6,6 @@ import LoginView from './Components/LoginView'
 import SearchView from "./Components/SearchView";
 import BillList from "./Components/BillList";
 import Bill from "./Components/Bill";
-import CampaignList from "./Components/CampaignList"
 import CampaignCreator from "./Components/CampaignCreator"
 import Registration from "./Components/Registration";
 import Profile from "./Components/profile";
@@ -47,12 +46,11 @@ const TaskStack = createStackNavigator({
 
 const ProfileStack = createStackNavigator({
     Profile: Profile,
-    EditProfile: {
+    ProfileEditor: {
         screen: ProfileEditor,
         navigationOptions: () => ({
             title: `Profile Editor`
         })
-
     }
 });
 

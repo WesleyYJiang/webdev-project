@@ -14,7 +14,7 @@ class Registration extends Component {
             lastName: '',
             password: '',
             passwordVerify: '',
-            role: 'regular'
+            role: 'REGULAR'
         };
         this.userService = UserService.instance;
     }
@@ -25,9 +25,15 @@ class Registration extends Component {
 
     checkInfo() {
         if(this.state.password === this.state.passwordVerify) {
-            this.userService.createUser(this.state)
-                .then(() => this.props.navigation.navigate('Profile'),
-                    () => alert('Username Taken!'));
+            this.userService.createUser(
+                        {
+                            email: this.state.email,
+                            firstName: this.state.firstName,
+                            lastName: this.state.lastName,
+                            password: this.state.password,
+                            userType: this.state.role
+                        }
+                    ).then(() => this.props.navigation.navigate('Profile'));
         } else {
             alert('Passwords do not Match!')
         }
@@ -57,8 +63,8 @@ class Registration extends Component {
                     mode="dropdown"
                     selectedValue={this.state.role}
                     onValueChange={(itemValue) => this.setState({role: itemValue})}>
-                    <Picker.Item label="Activist" value="Activist" />
-                    <Picker.Item label="Politician" value="Politician" />
+                    <Picker.Item label="REGULAR" value="REGULAR" />
+                    <Picker.Item label="POLITICIAN" value="POLITICIAN" />
                 </Picker>
 
                 <Button Success rounded block style={{margin: 20}}

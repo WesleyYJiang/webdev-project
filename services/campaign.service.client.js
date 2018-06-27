@@ -13,8 +13,25 @@ class CampaignService {
         return this[_singleton]
     }
 
+    findCampaignsForUser() {
+        return fetch(API_URL + 'enrollment', {
+            credentials: 'include'
+        })
+            .then(response => response.json());
+    }
+
     findAllCampaigns() {
         return fetch(API_URL + 'campaign')
+            .then(response => response.json())
+    }
+
+    hasUserJoined(campaignId) {
+        return fetch(API_URL + 'enrollment/campaign/' + campaignId)
+            .then(response => response.json())
+    }
+
+    findCampaignById(campaignId) {
+        return fetch(API_URL + 'campaign/' + campaignId)
             .then(response => response.json())
     }
 
@@ -25,6 +42,25 @@ class CampaignService {
                 'Content-Type': 'application/json'
             },
             method: 'POST'
+        });
+    }
+
+    updateCampaign(campaignId, campaign) {
+        return fetch(API_URL + 'update/campaign/' + campaignId, {
+            method: 'post',
+            body: JSON.stringify(campaign),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+    }
+
+    deleteCampaign(campaignId) {
+        console.log(campaignId);
+        return fetch(API_URL + 'campaign/' + campaignId, {
+            method: 'delete',
+            credentials: 'include'
         });
     }
 

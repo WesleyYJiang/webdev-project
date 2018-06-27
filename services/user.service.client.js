@@ -23,13 +23,19 @@ class UserService {
             .then(response => response.json())
     }
 
+    findUserByEmail(email) {
+        return fetch(API_URL + 'email/' + email)
+            .then(response => response.json())
+    }
+
     deleteUser(userId) {
         return fetch(API_URL + 'user/' + userId,
             { method: 'DELETE' }).then(response => response.json())
     }
 
     createUser(user) {
-        return fetch(API_URL + 'user/create', {
+        console.log(user);
+        return fetch(API_URL + 'user', {
             body: JSON.stringify(user),
             credentials: 'include',
             headers: {

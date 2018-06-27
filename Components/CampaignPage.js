@@ -15,20 +15,42 @@ class Profile extends Component {
                 name: '',
                 description: '',
                 owner: '',
-                _id: '',
-                picture: ''
+                picture: '',
+                people: ''
             },
-            leader: ''
+            leader: '',
+            campaignId: '',
+            userId: '',
+            joined: false
         };
         this.userService = UserService.instance;
         this.campaignService = CampaignService.instance;
+        this.setCampaign = this.setCampaign.bind(this);
     }
 
     componentDidMount(){
         const {navigation} = this.props;
-        const campaign = navigation.getParam("campaign");
-        this.setState({campaign: campaign});
-        this.loadLeader(campaign.owner);
+        const campaignId = navigation.getParam("campaignId");
+        this.setCampaign(campaignId);
+        this.loadProfile();
+        this.hasJoined();
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.setCampaign(newProps.campaignId);
+        this.loadProfile();
+        this.hasJoined();
+    }
+
+    setCampaign(campaignId) {
+        this.setState({campaignId: campaignId});
+
+        this.campaignService
+            .findCampaignById(campaignId)
+            .then((campaign) => {
+                this.setState({campaign: campaign});
+                this.loadLeader(campaign.owner);
+            });
     }
 
     loadLeader(id) {
@@ -39,6 +61,20 @@ class Profile extends Component {
                 this.setState({leader: fullName})
             });
     }
+
+    loadProfile() {
+        this.userService.profile()
+            .then(user => {
+                this.setState({userId: user._id});
+            })
+    }
+
+    hasJoined() {
+        this.campaignService.hasUserJoined(this.state.campaignId)
+            .then(() => this.setState({joined: true}),
+                () => this.setState({joined: false}) )
+    }
+
 
     render() {
         return (
@@ -54,9 +90,12 @@ class Profile extends Component {
                             </Left>
 
                         </CardItem>
+                        <CardItem cardBody>
+                            <Image source={{uri: 'https://source.unsplash.com/user/erondu'}}
+                                   style={{height: 200, width: null, flex: 1}}/>
+                        </CardItem>
                         <CardItem>
                             <Body>
-                            <Image source={{uri: this.state.campaign.picture}} style={{height: 200, width: 200, flex: 1}}/>
                             <Text>
                                 {this.state.campaign.description}
                             </Text>
@@ -66,24 +105,30 @@ class Profile extends Component {
                             <Left>
                                 <Button transparent textStyle={{color: '#87838B'}}>
                                     <Icon type= 'MaterialIcons' name="group" />
-                                    <Text>1,926</Text>
+                                    <Text>{this.state.campaign.people}</Text>
                                 </Button>
                             </Left>
 
+                            { (!this.state.joined) &&
                             <Right>
                                 <Button rounded primary
-                                        onPress={() => this.campaignService.userJoinsCampaign(this.state.campaign._id)}>
+                                        onPress={() => this.campaignService.userJoinsCampaign(this.state.campaignId)}>
                                     <Text>Join</Text>
                                 </Button>
-                            </Right>
+                            </Right>}
                         </CardItem>
 
                     </Card>
-                    <Button block primary
-                            onPress={() =>
-                                this.props.navigation.navigate('CampaignEditor', {campaign: this.state.campaign})}>
-                        <Text>Edit Campaign</Text>
-                    </Button>
+                    { (this.state.userId === this.state.campaign.owner) &&
+                        <Button block primary
+                                onPress={() => this.props.navigation.navigate(
+                                    'CampaignEditor',
+                                    {campaignId: this.state.campaignId}
+                                )}>
+
+                            <Text>Edit Campaign</Text>
+                        </Button>
+                    }
                 </Content>
             </Container>
         );

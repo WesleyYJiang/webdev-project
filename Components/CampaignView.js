@@ -18,6 +18,7 @@ import {
     Input
 } from 'native-base';
 import CampaignService from "../services/campaign.service.client";
+import UserService from "../services/user.service.client";
 
 class CampaignView extends Component {
     static navigationOptions = ({navigation}) => {
@@ -30,64 +31,40 @@ class CampaignView extends Component {
         return { headerTitle, headerRight};
     };
 
-    // _onSave() {
-    //     // console.log('You pressed Save');
-    //     if (this.props.navigation.state.params.isSaving == true) {
-    //         return;
-    //     }
-    //     this.props.navigation.setParams({ isSaving: true });
-    //     //Do some tasks for about 3 seconds
-    //     setInterval(() => {
-    //         console.log('I finished some tasks in 3 seconds');
-    //         this.props.navigation.setParams({ isSaving: false });
-    //     }, 3000);
-    // }
-    // componentDidMount() {
-    //     this.props.navigation.setParams({ onSave: this._onSave.bind(this), isSaving: false });
-    // }
-    // constructor(props) {
-    //     super(props);
-    //     this.campaignService = CampaignService.instance;
-    //     this.campaignService.findAllCampaigns()
-    //         .then(campaigns => this.setState({campaigns: campaigns}));
-    //     this.state = {campaigns: []}
-    // }
-    //
-    // render() {
-    //     return (
-    //         <View style={{padding: 15}}>
-    //             {this.state.courses.map((course, index) => (
-    //                 <ListItem
-    //                     onPress={() => this.props.
-    //                     navigation.navigate("ModuleList",
-    //                         {courseId: course.id})}
-    //                     title={course.title}
-    //                     key={index}/>
-    //             ))}
-    //         </View>
-    //     );
-    // }
-
     constructor(props) {
         super(props);
         this.campaignService = CampaignService.instance;
+        this.userService = UserService.instance;
         this.state = {
-            campaigns: []
+            campaigns: [],
+            regular: true
         }
+
     }
 
     componentDidMount(){
         this.loadCampaigns();
+        this.loadProfile();
     }
 
-    // componentWillReceiveProps(newProps) {
-    //     this.loadCampaigns();
-    // }
+    componentWillReceiveProps(newProps) {
+        this.loadCampaigns();
+        this.loadProfile();
+    }
 
     loadCampaigns() {
         this.campaignService.findAllCampaigns().then(campaigns => {
                 this.setState({campaigns: campaigns})
             });
+    }
+
+    loadProfile() {
+        this.userService.profile()
+            .then(user => {
+                if (user.userType !== 'REGULAR') {
+                    this.setState({regular: false})
+                }},
+                () => this.setState({regular: true}))
     }
 
     render() {
@@ -101,10 +78,11 @@ class CampaignView extends Component {
                         <Text>All</Text>
                     </Button>
                 </Segment>
+                { (!this.state.regular) &&
                 <Button success block onPress={() => this.props.navigation.navigate('CampaignCreator')}>
                     <Icon name="add"/>
                     <Text>Create campaign</Text>
-                </Button>
+                </Button>}
                 <Content>
                     {this.state.campaigns.map((campaign, index) => (
                         <Card key={index}>
@@ -118,26 +96,20 @@ class CampaignView extends Component {
                                 </Left>
                             </CardItem>
                             <CardItem cardBody>
-                                <Image source={{uri: campaign.photo}}
+                                <Image source={{uri: 'https://source.unsplash.com/user/erondu'}}
                                        style={{height: 200, width: null, flex: 1}}/>
                             </CardItem>
                             <CardItem>
                                 <Left>
                                     <Button transparent>
-                                        <Icon active name="thumbs-up"/>
-                                        <Text>12 Likes</Text>
+                                        <Icon active  type= 'MaterialIcons' name="group"/>
+                                        <Text>{campaign.people}</Text>
                                     </Button>
                                 </Left>
-                                <Body>
-                                <Button transparent>
-                                    <Icon active name="chatbubbles"/>
-                                    <Text>4 Comments</Text>
-                                </Button>
-                                </Body>
                                 <Right>
-                                    <Button block primary
+                                    <Button rounded primary
                                             onPress={() =>
-                                                this.props.navigation.navigate('CampaignPage', {campaign: campaign})}>
+                                                this.props.navigation.navigate('CampaignPage', {campaignId: campaign._id})}>
                                         <Text>Enter</Text>
                                     </Button>
                                 </Right>

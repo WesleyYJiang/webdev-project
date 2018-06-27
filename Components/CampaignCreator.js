@@ -49,7 +49,12 @@ class campaignCreator extends Component {
 
     createCampaign() {
         this.campaignService.createCampaign(this.state)
-            .then(() => alert('nice'))
+            .then((campaign) => {
+                alert('Campaign Started!');
+                this.campaignService.userJoinsCampaign(campaign._id)
+                    .then(() =>
+                        this.props.navigation.navigate('CampaignPage', {campaignId: campaign._id}));
+            })
     }
 
 
